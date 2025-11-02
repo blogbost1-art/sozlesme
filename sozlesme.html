@@ -1,126 +1,180 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avis Rent A Car Sözleşmesi</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Avis Sözleşme</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  body { font-family: Inter, system-ui, -apple-system, Arial; background:#f8fafc; }
+  .modal { max-width:900px; margin:20px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
+  #signaturePad { width:100%; height:220px; touch-action: none; background:white; border:1px solid #e5e7eb; border-radius:6px; }
+  .btn { background:#b91c1c; color:white; padding:10px 14px; border-radius:6px; font-weight:700; border:none; cursor:pointer; }
+  .small-btn { background:#e5e7eb; color:#111827; padding:8px 10px; border-radius:6px; border:none; cursor:pointer; }
+  .contract { white-space:pre-wrap; font-size:14px; color:#111827; line-height:1.5; }
+</style>
 </head>
-<body class="bg-gray-50">
-
-<header class="bg-white shadow-md sticky top-0 z-50">
-  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <div class="flex items-center space-x-2">
-      <img src="avis.jpg" alt="Avis Logo" class="h-10 rounded">
-      <span class="text-2xl font-bold text-red-600">AVIS RENT A CAR</span>
-    </div>
-    <a href="index.html" class="text-red-600 font-semibold hover:underline">Ana Sayfa</a>
-  </nav>
-</header>
-
-<section class="py-16 bg-white" id="hizmetlerimiz">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-dark mb-4">Hizmetlerimiz</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        Avis olarak araç kiralama sürecinde konfor, güvenlik ve müşteri memnuniyetini önceliğimiz haline getirdik.
-      </p>
+<body>
+  <div class="modal">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-3">
+        <img src="avis.jpg" alt="Avis" style="height:48px;">
+        <h2 class="text-xl font-bold">AVIS Kiralama Sözleşmesi</h2>
+      </div>
+      <a href="index.html" class="text-sm text-red-600">Ana Sayfa</a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-          <i class="fas fa-car text-white text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-dark mb-3">Araç Kiralama</h3>
-        <p class="text-gray-600 mb-4">Günlük, haftalık veya aylık araç kiralama seçenekleriyle her ihtiyaca uygun filo çözümleri sunuyoruz.</p>
+    <section class="mb-6">
+      <h3 class="font-semibold text-gray-700 mb-2">Hizmetlerimiz</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-gray-50 rounded">Araç Kiralama - Günlük / Haftalık / Aylık</div>
+        <div class="p-4 bg-gray-50 rounded">Kasko & Sigorta</div>
+        <div class="p-4 bg-gray-50 rounded">Yol Yardım & Araç Değişim</div>
+        <div class="p-4 bg-gray-50 rounded">Vale & Teslim Alma</div>
       </div>
-      <div class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-          <i class="fas fa-shield-alt text-white text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-dark mb-3">Kasko ve Sigorta</h3>
-        <p class="text-gray-600 mb-4">Tüm araçlarımız zorunlu trafik sigortası ve zorunlu kasko güvencesiyle kiralanmaktadır.</p>
+    </section>
+
+    <section class="mb-6">
+      <h3 class="font-semibold text-gray-700 mb-2">Kiralama Sözleşmesi Maddeler</h3>
+      <div class="contract p-4 bg-gray-50 rounded">
+1-) Araçlarda HGS olup (Hızlı Geçiş Sistemi), kiracı kira dönüşü geçiş yaptığı bedel online olarak kontrol edilip araç teslim ettiğinde anlık provizyon ücretinden düşülecektir.
+
+2-) Kiralanan aracın her ne şekilde ve şartta olursa olsun kiraya verilmesi, bedelsiz de olsa üçüncü şahıslara kullandırılması yasak olup, aracın:
+a) Ek sürücü olarak belirtilmeyen sürücü tarafından aracın kullanılması.
+b) Herhangi bir vasıtayı çekmek veya itmek.
+c) Gelir karşılığı yolcu veya mal taşımasında.
+d) Türkiye Cumhuriyeti sınırları dışında kullanılmasında.
+
+3-) Aracın sürücüsü alkol, uyuşturucu, uyku hapları etkisinde olmadığı sürece, aracın zarar görmesi durumunda hasar sorumluluğunu itiraz etmeksizin karşılamayı firmamız olarak kabul ediyoruz.
+a) Poliçe ödemeleri sizin hesaplarınızda kalacaktır. Kasko ve sigorta poliçesi 50.000 TL’dir. 15 dakika sonrasında ödemelerinizi kullanabilirsiniz. İşlemler 15 dakikalık bir süredir.
+b) Kaza anında alkol, uyuşturucu veya uyku geciktirici ilaçlar etkisi altındaysanız; yasal hız sınırlarının aşıldığı durumlarda ve aracın zarar görmesi durumunda masraflar kiracıya aittir.
+c) Sözleşmenin akdinden sonra kiracı herhangi bir nedenle araç kullanma yetkisini kaybederse (ehliyete el konulması durumunda) aracın konumunu atarak vale görevlimize teslim etmesi gerekir.
+d) Araçla alkollü veya uyuşturucu etkisinde kaza yapmanız durumunda araç masrafı ve aracın minimum 120.000 TL pert (değer kaybı) bedeli sizlere aittir.
+e) Kiracı ve kira sözleşmesinde ek sürücü olarak belirlenenlerin haricindeki şahısların aracı kullanması neticesinde meydana gelen hasar ve/veya kazalarda: Aracın çalınması veya zarar görmesi durumunda kasko ve sigorta firmaları araç masraflarını öder. Kazalarda yaralanmalı veya ölümlü durumlarda kasko ve sigorta firmaları sizlere ödeme yapmakla yükümlüdür.
+
+4-) Kiracının kiralanan araç ile karıştığı herhangi bir kazada; kiracı alkol, uyuşturucu etkisinde olay yerini terk etmesi durumunda, doğrudan ve dolaylı zararlar kiracıdan talep edilecektir.
+
+NOT: Görüşmelerimiz kayıt altına alınmaktadır. Sözleşmenin WhatsApp üzerinden atılması gereklidir. Sözleşme muhasebe departmanımız tarafından atılacaktır.
+ŞARTLAR UYGUN OLDUĞU TAKDİRDE, WHATSAPP ÜZERİNDEN “OKUDUM, KABUL EDİYORUM” YAZMANIZ GEREKLİDİR.
       </div>
-      <div class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-          <i class="fas fa-exchange-alt text-white text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-dark mb-3">Araç Değişim Hizmeti</h3>
-        <p class="text-gray-600 mb-4">Yolda arıza veya kaza durumunda, bulunduğunuz yere en yakın noktadan anında araç değişimi yapılır.</p>
+    </section>
+
+    <section class="mb-4">
+      <label class="block mb-2 font-medium">Ad Soyad</label>
+      <input id="fullName" class="w-full p-2 border rounded" placeholder="Adınızı ve soyadınızı giriniz">
+
+      <label class="block mt-4 mb-2 font-medium">İmzanız</label>
+      <canvas id="signaturePad"></canvas>
+      <div class="mt-2 flex gap-2">
+        <button class="small-btn" id="clearBtn">İmzayı Temizle</button>
+        <button class="btn" id="saveBtn">Onayla ve PDF İndir</button>
       </div>
-      <div class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-          <i class="fas fa-user-tie text-white text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-dark mb-3">Şoförlü Araç Hizmeti</h3>
-        <p class="text-gray-600 mb-4">İş veya özel organizasyonlarınızda profesyonel sürücülerimizle güvenli ve konforlu yolculuk.</p>
-      </div>
-      <div class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-          <i class="fas fa-map-marker-alt text-white text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-dark mb-3">Vale & Teslim Alma</h3>
-        <p class="text-gray-600 mb-4">Aracınızı belirttiğiniz konuma teslim ediyor ve kiralama bitiminde dilediğiniz yerden teslim alıyoruz.</p>
-      </div>
-      <div class="bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-          <i class="fas fa-road text-white text-xl"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-dark mb-3">Yol Yardım Hizmeti</h3>
-        <p class="text-gray-600 mb-4">7/24 yol yardım desteğimizle lastik patlaması, yakıt bitmesi veya arıza durumunda yanınızdayız.</p>
-      </div>
-    </div>
+    </section>
+
   </div>
-</section>
-
-<section class="bg-gray-100 py-12">
-  <div class="container mx-auto px-4">
-    <h2 class="text-2xl font-bold text-red-600 mb-6">Kiralama Sözleşmesi</h2>
-    <div class="bg-white p-6 rounded shadow text-sm text-gray-800 leading-relaxed">
-      Kiralama Sözleşmesi Maddeler:<br><br>
-      1-) Araçlarda HGS olup (Hızlı Geçiş Sistemi), kiracı kira dönüşü geçiş yaptığı bedel online olarak kontrol edilip araç teslim ettiğinde anlık provizyon ücretinden düşülecektir.<br><br>
-      2-) Kiralanan aracın her ne şekilde ve şartta olursa olsun kiraya verilmesi, bedelsiz de olsa üçüncü şahıslara kullandırılması yasaktır.<br>
-      a) Ek sürücü olarak belirtilmeyen sürücü tarafından aracın kullanılması.<br>
-      b) Herhangi bir vasıtayı çekmek veya itmek.<br>
-      c) Gelir karşılığı yolcu veya mal taşımasında.<br>
-      d) Türkiye Cumhuriyeti sınırları dışında kullanılmasında.<br><br>
-      3-) Aracın sürücüsü alkol, uyuşturucu, uyku hapları etkisinde olmadığı sürece, aracın zarar görmesi durumunda hasar sorumluluğunu itiraz etmeksizin karşılamayı firmamız olarak kabul ediyoruz.<br>
-      a) Poliçe ödemeleri sizin hesaplarınızda kalacaktır. Kasko ve sigorta poliçesi 50.000 TL’dir. 15 dakika sonrasında ödemelerinizi kullanabilirsiniz.<br>
-      b) Kaza anında alkol, uyuşturucu veya uyku geciktirici ilaçlar etkisi altındaysanız; yasal hız sınırlarının aşıldığı durumlarda ve aracın zarar görmesi durumunda masraflar kiracıya aittir.<br>
-      c) Kiracı araç kullanma yetkisini kaybederse (ehliyete el konulması), aracı konumunu atarak vale görevlimize teslim etmelidir.<br>
-      d) Araçla alkollü veya uyuşturucu etkisinde kaza yapmanız durumunda araç masrafı ve minimum 120.000 TL pert (değer kaybı) bedeli sizlere aittir.<br>
-      e) Kiracı ve sözleşmede ek sürücü olarak belirlenenlerin haricindeki şahısların aracı kullanması neticesinde meydana gelen hasar ve/veya kazalarda kasko ve sigorta kapsamı dışı kalınır.<br><br>
-      4-) Kiracının alkol, uyuşturucu etkisinde olay yerini terk etmesi durumunda doğrudan ve dolaylı zararlar kiracıdan talep edilir.<br><br>
-      NOT: Görüşmelerimiz kayıt altına alınmaktadır. Sözleşmenin WhatsApp üzerinden atılması gereklidir.<br>
-      ŞARTLAR UYGUN OLDUĞU TAKDİRDE, WHATSAPP ÜZERİNDEN “OKUDUM, KABUL EDİYORUM” YAZMANIZ GEREKLİDİR.<br><br>
-
-      <p class="mt-4 font-semibold">Ad Soyad:</p>
-      <input type="text" id="fullName" class="w-full border p-2 rounded mb-4" placeholder="Adınızı ve soyadınızı giriniz">
-      <p class="font-semibold">İmzanız:</p>
-      <canvas id="signaturePad" class="border rounded w-full h-40 bg-white mb-3"></canvas>
-      <div class="flex gap-3 mb-4">
-        <button onclick="clearSignature()" class="bg-gray-200 px-3 py-2 rounded">İmzayı Temizle</button>
-      </div>
-      <button onclick="downloadPDF()" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">Onayla ve İndir</button>
-    </div>
-  </div>
-</section>
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-const canvas=document.getElementById('signaturePad');
-const ctx=canvas.getContext('2d');
-let drawing=false;
-canvas.addEventListener('mousedown',()=>drawing=true);
-canvas.addEventListener('mouseup',()=>{drawing=false;ctx.beginPath();});
-canvas.addEventListener('mousemove',draw);
-function draw(e){if(!drawing)return;ctx.lineWidth=2;ctx.lineCap='round';ctx.strokeStyle='#000';ctx.lineTo(e.offsetX,e.offsetY);ctx.stroke();ctx.beginPath();ctx.moveTo(e.offsetX,e.offsetY);}
-function clearSignature(){ctx.clearRect(0,0,canvas.width,canvas.height);}
-async function downloadPDF(){const{jsPDF}=window.jspdf;const pdf=new jsPDF('p','pt','a4');const name=document.getElementById('fullName').value||'İsimsiz';await html2canvas(document.querySelector('section.bg-gray-100')).then(cvs=>{const img=cvs.toDataURL('image/png');pdf.text(`AVIS Kiralama Sözleşmesi - ${name}`,40,40);pdf.addImage(img,'PNG',30,60,550,700);});pdf.save('Avis_Kiralama_Sozlesmesi.pdf');alert("PDF başarıyla indirildi. Lütfen belgeyi Avis müşteri temsilcisine gönderiniz.");}
-</script>
+(function(){
+  const canvas = document.getElementById('signaturePad');
+  const ctx = canvas.getContext('2d');
+  // make canvas full width responsive
+  function resizeCanvas() {
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    const width = canvas.clientWidth || canvas.offsetWidth || canvas.scrollWidth;
+    canvas.width = width * ratio;
+    canvas.height = 220 * ratio;
+    canvas.style.height = '220px';
+    ctx.scale(ratio, ratio);
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#000';
+  }
+  // initial size
+  canvas.style.width = '100%';
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
+  let drawing = false;
+  let lastX = 0, lastY = 0;
+
+  function getPos(e) {
+    if (e.touches && e.touches.length) {
+      return { x: e.touches[0].clientX - canvas.getBoundingClientRect().left, y: e.touches[0].clientY - canvas.getBoundingClientRect().top };
+    } else {
+      return { x: e.clientX - canvas.getBoundingClientRect().left, y: e.clientY - canvas.getBoundingClientRect().top };
+    }
+  }
+
+  function start(e) {
+    e.preventDefault();
+    drawing = true;
+    const pos = getPos(e);
+    lastX = pos.x; lastY = pos.y;
+  }
+  function move(e) {
+    if (!drawing) return;
+    e.preventDefault();
+    const pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    lastX = pos.x; lastY = pos.y;
+  }
+  function end(e) {
+    if (!drawing) return;
+    drawing = false;
+    ctx.beginPath();
+  }
+
+  // mouse events
+  canvas.addEventListener('mousedown', start);
+  canvas.addEventListener('mousemove', move);
+  window.addEventListener('mouseup', end);
+  // touch events
+  canvas.addEventListener('touchstart', start, {passive:false});
+  canvas.addEventListener('touchmove', move, {passive:false});
+  canvas.addEventListener('touchend', end);
+
+  // clear button
+  document.getElementById('clearBtn').addEventListener('click', function(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    // reset scale and context after clear for consistent drawing
+    resizeCanvas();
+  });
+
+  // save pdf
+  document.getElementById('saveBtn').addEventListener('click', async function(){
+    const name = document.getElementById('fullName').value || 'İsimsiz';
+    // render modal content area to PDF
+    const modal = document.querySelector('.modal');
+    // temporarily remove buttons to avoid in PDF
+    const clearBtn = document.getElementById('clearBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    clearBtn.style.display = 'none';
+    saveBtn.style.display = 'none';
+    try {
+      const canvasImg = await html2canvas(modal, { scale: 2, useCORS:true, backgroundColor:'#ffffff' });
+      const imgData = canvasImg.toDataURL('image/png');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p','pt','a4');
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvasImg.height * pageWidth) / canvasImg.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, pageWidth, pdfHeight);
+      pdf.save(`Avis_Sozlesme_${name.replace(/\s+/g,'_')}.pdf`);
+      alert('PDF indirildi.');
+    } catch (err) {
+      console.error(err);
+      alert('PDF oluşturulurken hata oluştu.');
+    } finally {
+      clearBtn.style.display = '';
+      saveBtn.style.display = '';
+    }
+  });
+
+})();
+</script>
 </body>
 </html>
