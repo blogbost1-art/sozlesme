@@ -185,7 +185,7 @@
       const availableW = pageWidth - margin*2;
       const imgW = availableW;
       const imgH = (canvasRendered.height * imgW) / canvasRendered.width;
-      pdf.addImage(imgData,'PNG',margin,margin,imgW,imgH);
+      pdf.addImage(imgData,'PNG',0,0,pageWidth,0);
 
       // add name & small signature near bottom (after the rendered content)
       const name = document.getElementById('fullname').value || '-';
