@@ -3,56 +3,60 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Avis Sözleşme - E-imza & PDF</title>
+<title>Avis Sözleşme</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  body { font-family: Inter, system-ui, -apple-system, Arial, "Helvetica Neue", Helvetica; background:#f8fafc; }
+  body { font-family: Inter, system-ui, -apple-system, Arial; background:#f8fafc; }
   .modal { max-width:900px; margin:20px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
   #signaturePad { width:100%; height:220px; touch-action: none; background:white; border:1px solid #e5e7eb; border-radius:6px; }
   .btn { background:#b91c1c; color:white; padding:10px 14px; border-radius:6px; font-weight:700; border:none; cursor:pointer; }
   .small-btn { background:#e5e7eb; color:#111827; padding:8px 10px; border-radius:6px; border:none; cursor:pointer; }
   .contract { white-space:pre-wrap; font-size:14px; color:#111827; line-height:1.5; }
-  .service-card { border: 1px solid #d1d5db; border-radius: 10px; padding: 16px; background: #f9fafb; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-  .service-card h4 { font-weight: 600; color: #b91c1c; margin-bottom: 6px; }
-  .service-card p { font-size: 13px; color: #374151; line-height: 1.4; }
 </style>
 </head>
 <body>
-  <div class="modal" id="printArea">
+  <div class="modal">
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center gap-3">
-        <img src="avis.jpg" alt="Avis" style="height:48px;" id="logoImg">
+        <img src="avis.jpg" alt="Avis" style="height:48px;">
         <h2 class="text-xl font-bold">AVIS Kiralama Sözleşmesi</h2>
       </div>
-      <a href="index.html" class="text-sm text-red-600 font-semibold hover:underline">Ana Sayfa</a>
+      <a href="index.html" class="text-sm text-red-600">Ana Sayfa</a>
     </div>
 
     <section class="mb-6">
-      <h3 class="font-semibold text-gray-700 mb-4">Hizmetlerimiz</h3>
+      <h3 class="font-semibold text-gray-700 mb-2">Hizmetlerimiz</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="service-card">
-          <h4>Araç Kiralama - Günlük / Haftalık / Aylık</h4>
-          <p>Kısa ve uzun dönem kiralama seçenekleriyle ihtiyacınıza uygun araçları güvenle kiralayabilirsiniz. Filo yönetimi ve teslimat kolaylığı sağlanır.</p>
-        </div>
-        <div class="service-card">
-          <h4>Kasko & Sigorta</h4>
-          <p>Tüm araçlarımız tam kapsamlı kasko ve sigorta güvencesi altındadır. Hasar, hırsızlık ve kaza durumlarında müşterilerimizin güvenliği ön plandadır.</p>
-        </div>
-        <div class="service-card">
-          <h4>Yol Yardım & Araç Değişim</h4>
-          <p>Herhangi bir arıza veya aksilik durumunda 7/24 yol yardım hizmeti sunulur. Gerektiğinde araç değişim desteği sağlanır.</p>
-        </div>
-        <div class="service-card">
-          <h4>Vale & Teslim Alma</h4>
-          <p>Araç teslim ve iade süreçlerinde profesyonel vale ekibimiz hizmet vermektedir. İstediğiniz noktada teslimat kolaylığı sağlanır.</p>
-        </div>
+        <div class="p-4 bg-gray-50 rounded">Araç Kiralama - Günlük / Haftalık / Aylık</div>
+        <div class="p-4 bg-gray-50 rounded">Kasko & Sigorta</div>
+        <div class="p-4 bg-gray-50 rounded">Yol Yardım & Araç Değişim</div>
+        <div class="p-4 bg-gray-50 rounded">Vale & Teslim Alma</div>
       </div>
     </section>
 
     <section class="mb-6">
       <h3 class="font-semibold text-gray-700 mb-2">Kiralama Sözleşmesi Maddeler</h3>
-      <div class="contract p-4 bg-gray-50 rounded" id="contractText">1-) Araçlarda HGS olup (Hızlı Geçiş Sistemi), kiracı kira dönüşü geçiş yaptığı bedel online olarak kontrol edilip araç teslim ettiğinde anlık provizyon ücretinden düşülecektir.
-\n... (metin aynı kalır) ...</div>
+      <div class="contract p-4 bg-gray-50 rounded">
+1-) Araçlarda HGS olup (Hızlı Geçiş Sistemi), kiracı kira dönüşü geçiş yaptığı bedel online olarak kontrol edilip araç teslim ettiğinde anlık provizyon ücretinden düşülecektir.
+
+2-) Kiralanan aracın her ne şekilde ve şartta olursa olsun kiraya verilmesi, bedelsiz de olsa üçüncü şahıslara kullandırılması yasak olup, aracın:
+a) Ek sürücü olarak belirtilmeyen sürücü tarafından aracın kullanılması.
+b) Herhangi bir vasıtayı çekmek veya itmek.
+c) Gelir karşılığı yolcu veya mal taşımasında.
+d) Türkiye Cumhuriyeti sınırları dışında kullanılmasında.
+
+3-) Aracın sürücüsü alkol, uyuşturucu, uyku hapları etkisinde olmadığı sürece, aracın zarar görmesi durumunda hasar sorumluluğunu itiraz etmeksizin karşılamayı firmamız olarak kabul ediyoruz.
+a) Poliçe ödemeleri sizin hesaplarınızda kalacaktır. Kasko ve sigorta poliçesi 50.000 TL’dir. 15 dakika sonrasında ödemelerinizi kullanabilirsiniz. İşlemler 15 dakikalık bir süredir.
+b) Kaza anında alkol, uyuşturucu veya uyku geciktirici ilaçlar etkisi altındaysanız; yasal hız sınırlarının aşıldığı durumlarda ve aracın zarar görmesi durumunda masraflar kiracıya aittir.
+c) Sözleşmenin akdinden sonra kiracı herhangi bir nedenle araç kullanma yetkisini kaybederse (ehliyete el konulması durumunda) aracın konumunu atarak vale görevlimize teslim etmesi gerekir.
+d) Araçla alkollü veya uyuşturucu etkisinde kaza yapmanız durumunda araç masrafı ve aracın minimum 120.000 TL pert (değer kaybı) bedeli sizlere aittir.
+e) Kiracı ve kira sözleşmesinde ek sürücü olarak belirlenenlerin haricindeki şahısların aracı kullanması neticesinde meydana gelen hasar ve/veya kazalarda: Aracın çalınması veya zarar görmesi durumunda kasko ve sigorta firmaları araç masraflarını öder. Kazalarda yaralanmalı veya ölümlü durumlarda kasko ve sigorta firmaları sizlere ödeme yapmakla yükümlüdür.
+
+4-) Kiracının kiralanan araç ile karıştığı herhangi bir kazada; kiracı alkol, uyuşturucu etkisinde olay yerini terk etmesi durumunda, doğrudan ve dolaylı zararlar kiracıdan talep edilecektir.
+
+NOT: Görüşmelerimiz kayıt altına alınmaktadır. Sözleşmenin WhatsApp üzerinden atılması gereklidir. Sözleşme muhasebe departmanımız tarafından atılacaktır.
+ŞARTLAR UYGUN OLDUĞU TAKDİRDE, WHATSAPP ÜZERİNDEN “OKUDUM, KABUL EDİYORUM” YAZMANIZ GEREKLİDİR.
+      </div>
     </section>
 
     <section class="mb-4">
@@ -66,63 +70,116 @@
         <button class="btn" id="saveBtn">Onayla ve PDF İndir</button>
       </div>
     </section>
+
   </div>
 
-<!-- Offline yedek kütüphaneler -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-window.addEventListener('DOMContentLoaded', ()=>{
-  // Eğer CDN yüklenmemişse (offline ortam)
-  if (typeof SignaturePad === 'undefined') {
-    console.warn('SignaturePad CDN yüklenmedi, yerel sürüm oluşturuluyor...');
-    window.SignaturePad = class {
-      constructor(canvas, opts){ this.canvas = canvas; this.ctx = canvas.getContext('2d'); this.drawing=false; this.penColor = opts.penColor || '#000'; this._setup(); }
-      _setup(){ this.canvas.addEventListener('mousedown', e=>{this.drawing=true;this.ctx.beginPath();this.ctx.moveTo(e.offsetX,e.offsetY);});
-        this.canvas.addEventListener('mousemove', e=>{if(this.drawing){this.ctx.strokeStyle=this.penColor;this.ctx.lineWidth=2;this.ctx.lineTo(e.offsetX,e.offsetY);this.ctx.stroke();}});
-        window.addEventListener('mouseup', ()=>this.drawing=false);
-        this.canvas.addEventListener('touchstart', e=>{e.preventDefault();const t=e.touches[0];const r=this.canvas.getBoundingClientRect();this.drawing=true;this.ctx.beginPath();this.ctx.moveTo(t.clientX-r.left,t.clientY-r.top);});
-        this.canvas.addEventListener('touchmove', e=>{e.preventDefault();if(!this.drawing)return;const t=e.touches[0];const r=this.canvas.getBoundingClientRect();this.ctx.lineTo(t.clientX-r.left,t.clientY-r.top);this.ctx.strokeStyle=this.penColor;this.ctx.lineWidth=2;this.ctx.stroke();});
-        window.addEventListener('touchend', ()=>this.drawing=false);
-      }
-      clear(){ this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height); }
-      isEmpty(){ const pixels = this.ctx.getImageData(0,0,this.canvas.width,this.canvas.height).data; return !pixels.some(p=>p!==0); }
-      toDataURL(){ return this.canvas.toDataURL('image/png'); }
-    }
-  }
-  if (typeof jspdf === 'undefined' || typeof window.jspdf === 'undefined') {
-    window.jspdf = { jsPDF: class { save(){ alert('PDF oluşturma çevrimdışı modda devre dışı'); } } };
-  }
-
+(function(){
   const canvas = document.getElementById('signaturePad');
   const ctx = canvas.getContext('2d');
-
   function resizeCanvas() {
     const ratio = Math.max(window.devicePixelRatio || 1, 1);
-    const width = canvas.clientWidth;
+    const width = canvas.clientWidth || canvas.offsetWidth;
     canvas.width = width * ratio;
     canvas.height = 220 * ratio;
-    canvas.style.width = '100%';
     canvas.style.height = '220px';
     ctx.scale(ratio, ratio);
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#000';
   }
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  const signaturePad = new SignaturePad(canvas, { minWidth: 1.2, maxWidth: 2.5, penColor: 'rgb(0,0,0)' });
-  document.getElementById('clearBtn').addEventListener('click',()=>signaturePad.clear());
+  let drawing = false, lastX = 0, lastY = 0;
+  function getPos(e){return e.touches?{x:e.touches[0].clientX-canvas.getBoundingClientRect().left,y:e.touches[0].clientY-canvas.getBoundingClientRect().top}:{x:e.clientX-canvas.getBoundingClientRect().left,y:e.clientY-canvas.getBoundingClientRect().top};}
+  function start(e){e.preventDefault();drawing=true;const p=getPos(e);lastX=p.x;lastY=p.y;}
+  function move(e){if(!drawing)return;e.preventDefault();const p=getPos(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;}
+  function end(){drawing=false;ctx.beginPath();}
+  canvas.addEventListener('mousedown',start);canvas.addEventListener('mousemove',move);window.addEventListener('mouseup',end);
+  canvas.addEventListener('touchstart',start,{passive:false});canvas.addEventListener('touchmove',move,{passive:false});canvas.addEventListener('touchend',end);
 
-  document.getElementById('saveBtn').addEventListener('click',()=>{
-    if (typeof window.jspdf === 'undefined' || !window.jspdf.jsPDF) {
-      alert('PDF oluşturma çevrimdışı devre dışı, sadece imza atabilirsiniz.');
-      return;
+  document.getElementById('clearBtn').addEventListener('click',()=>{ctx.clearRect(0,0,canvas.width,canvas.height);resizeCanvas();});
+
+  document.getElementById('saveBtn').addEventListener('click',async()=>{
+    const name=document.getElementById('fullName').value||'İsimsiz';
+    const modal=document.querySelector('.modal');
+    const clearBtn=document.getElementById('clearBtn');
+    const saveBtn=document.getElementById('saveBtn');
+    clearBtn.style.display='none';
+    saveBtn.style.display='none';
+
+    try{
+      const canvasImg=await html2canvas(modal,{scale:2,backgroundColor:'#fff',useCORS:true});
+      const imgData=canvasImg.toDataURL('image/png',1.0);
+      const {jsPDF}=window.jspdf;
+      const pdf=new jsPDF('p','pt','a4');
+      const pageWidth=pdf.internal.pageSize.getWidth();
+      const pageHeight=pdf.internal.pageSize.getHeight();
+      const imgHeight=(canvasImg.height*pageWidth)/canvasImg.width;
+      let position=0;
+      let heightLeft=imgHeight;
+
+      // Çok sayfalı PDF desteği
+      pdf.addImage(imgData,'PNG',0,position,pageWidth,imgHeight);
+      heightLeft -= pageHeight;
+      while(heightLeft>0){
+        position -= pageHeight;
+        pdf.addPage();
+        pdf.addImage(imgData,'PNG',0,position,pageWidth,imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      pdf.save(`Avis_Sozlesme_${name.replace(/\s+/g,'_')}.pdf`);
+    }catch(err){console.error(err);}finally{
+      clearBtn.style.display='';
+      saveBtn.style.display='';
     }
-    const name = document.getElementById('fullName').value || 'İsimsiz';
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({ unit:'pt', format:'a4' });
-    pdf.text('AVIS Kiralama Sözleşmesi', 40, 40);
-    if (!signaturePad.isEmpty()) pdf.addImage(signaturePad.toDataURL(), 'PNG', 40, 60, 200, 80);
-    pdf.text('Ad Soyad: '+name, 40, 160);
-    pdf.save('Avis_Sozlesme_'+name.replace(/\s+/g,'_')+'.pdf');
   });
+})();
+</script>
+<script>
+document.getElementById('saveBtn').addEventListener('click', async () => {
+  const name = document.getElementById('fullName').value || 'Isimsiz';
+  const modal = document.getElementById('modalRoot') || document.querySelector('.modal');
+  const clearBtn = document.getElementById('clearBtn');
+  const saveBtn = document.getElementById('saveBtn');
+  clearBtn.style.display = 'none';
+  saveBtn.style.display = 'none';
+  try {
+    const { jsPDF } = window.jspdf;
+    const canvasImg = await html2canvas(modal, {
+      scale: 2,
+      backgroundColor: '#fff',
+      useCORS: true,
+      allowTaint: true,
+      scrollY: -window.scrollY
+    });
+    const imgData = canvasImg.toDataURL('image/png', 1.0);
+    const pdf = new jsPDF('p', 'pt', 'a4');
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const imgHeight = (canvasImg.height * pageWidth) / canvasImg.width;
+    let heightLeft = imgHeight;
+    let position = 0;
+    pdf.addImage(imgData, 'PNG', 0, position, pageWidth, imgHeight);
+    heightLeft -= pageHeight;
+    while (heightLeft > 0) {
+      position -= pageHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, pageWidth, imgHeight);
+      heightLeft -= pageHeight;
+    }
+    pdf.save(`Avis_Sozlesme_${name.replace(/\s+/g, '_')}.pdf`);
+  } catch (err) {
+    console.error(err);
+    alert('PDF oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.');
+  } finally {
+    clearBtn.style.display = '';
+    saveBtn.style.display = '';
+  }
 });
 </script>
 </body>
