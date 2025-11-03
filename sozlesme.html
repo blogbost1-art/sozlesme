@@ -1,126 +1,211 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Avis Sözleşme</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  body { font-family: Inter, system-ui, -apple-system, Arial; background:#f8fafc; }
-  .modal { max-width:900px; margin:20px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
-  #signaturePad { width:100%; height:220px; touch-action:none; background:white; border:1px solid #e5e7eb; border-radius:6px; }
-  .btn { background:#b91c1c; color:white; padding:10px 14px; border-radius:6px; font-weight:700; border:none; cursor:pointer; }
-  .small-btn { background:#e5e7eb; color:#111827; padding:8px 10px; border-radius:6px; border:none; cursor:pointer; }
-  .contract { white-space:pre-wrap; font-size:14px; color:#111827; line-height:1.5; }
-  @media print {.btn,.small-btn{display:none!important;}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AVIS — Kiralama Sözleşmesi Poliçesi</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <style>
+    :root{--paper-width:800px;--paper-padding:48px}
+    html,body{height:100%;margin:0;font-family:Arial, Helvetica, sans-serif;background:#f6f6f6;color:#222}
+    .wrap{min-height:100%;display:flex;justify-content:center;padding:40px 20px}
+    /* Document (white page) */
+    .document{width:var(--paper-width);background:#fff;padding:var(--paper-padding);box-shadow:0 8px 30px rgba(0,0,0,0.08);position:relative}
+
+    /* Watermark */
+    .watermark{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%) rotate(-12deg);font-size:64px;color:#c40000;opacity:0.06;font-weight:800;letter-spacing:6px;pointer-events:none;user-select:none}
+
+    .header{text-align:center;margin-bottom:18px}
+    .logo{color:#c40000;font-weight:800;font-size:34px;letter-spacing:2px}
+    .logo sup{font-size:14px;position:relative;top:-12px}
+    .title{font-size:16px;margin:6px 0 0 0;font-weight:700}
+    .subtitle{color:#666;font-size:12px;margin-top:4px}
+
+    .content{margin-top:20px;font-size:13px;line-height:1.4;text-align:justify}
+    .content p{margin:10px 0}
+
+    .fields{margin-top:22px;display:flex;gap:16px}
+    .field{flex:1}
+    label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}
+    input[type=text],input[type=date]{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px}
+
+    .signature-block{margin-top:20px}
+    .sig-label{font-weight:700;margin-bottom:8px}
+    .sig-canvas{width:100%;height:120px;border:1px solid #ddd;border-radius:6px;background:#fafafa;touch-action:none}
+    .sig-actions{display:flex;gap:10px;align-items:center;margin-top:8px}
+    .no-export{ /* elements with this class will not be exported into PDF */ }
+
+    .footer-line{border-top:1px solid #eee;margin-top:24px;padding-top:12px;font-size:12px;color:#666}
+
+    .buttons{display:flex;justify-content:center;gap:12px;margin-top:20px}
+    button{background:#c40000;color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700}
+    button.secondary{background:#555}
+
+    /* Small screens */
+    @media (max-width:840px){:root{--paper-width:680px}}
+    @media print{body{background:#fff} .wrap{padding:0} .no-export{display:none} .document{box-shadow:none}}
+  </style>
 </head>
 <body>
-  <div class="modal" id="modalRoot">
-    <div class="flex items-center justify-between mb-4">
-      <div class="flex items-center gap-3">
-        <img src="avis.jpg" alt="Avis" style="height:48px;">
-        <h2 class="text-xl font-bold">AVIS Kiralama Sözleşmesi</h2>
+  <div class="wrap">
+    <div class="document" id="document-root">
+
+      <!-- Watermark behind content -->
+      <div class="watermark">AVIS SÖZLEŞME POLİÇESİ</div>
+
+      <div class="header">
+        <div class="logo">AVIS<sup>®</sup></div>
+        <div class="title">KİRALAMA SÖZLEŞMESİ POLİÇESİ</div>
+        <div class="subtitle">Resmî Belge — Lütfen eksiksiz doldurunuz</div>
       </div>
-      <a href="index.html" class="text-sm text-red-600">Ana Sayfa</a>
+
+      <div id="content-area" class="content">
+        <p><strong>1-)</strong> Araçlarda HGS olup (Hızlı Geçiş Sistemi), kiracı kira dönüşü geçiş yaptığı bedel online olarak kontrol edilip araç teslim ettiğinde anlık provizyon ücretinden düşülecektir.</p>
+        <p><strong>2-)</strong> Kiralanan aracın her ne şekilde ve şartta olursa olsun kiraya verilmesi, bedelsiz de olsa üçüncü şahıslara kullandırılması yasak olup, aracın:<br>
+        a) Ek sürücü olarak belirtilmeyen sürücü tarafından aracın kullanılması.<br>
+        b) Herhangi bir vasıtayı çekmek veya itmek.<br>
+        c) Gelir karşılığı yolcu veya mal taşımasında.<br>
+        d) Türkiye Cumhuriyeti sınırları dışında kullanılmasında.</p>
+
+        <p><strong>3-)</strong> Aracın sürücüsü alkol, uyuşturucu, uyku hapları etkisinde olmadığı sürece, aracın zarar görmesi durumunda hasar sorumluluğunu itiraz etmeksizin karşılamayı firmamız olarak kabul ediyoruz.<br>
+        a) Poliçe ödemeleri sizin hesaplarınızda kalacaktır. Kasko ve sigorta poliçesi 50.000 TL’dir. 15 dakika sonrasında ödemelerinizi kullanabilirsiniz. İşlemler 15 dakikalık bir süredir.<br>
+        b) Kaza anında alkol, uyuşturucu veya uyku geciktirici ilaçlar etkisi altındaysanız; yasal hız sınırlarının aşıldığı durumlarda ve aracın zarar görmesi durumunda masraflar kiracıya aittir.<br>
+        c) Sözleşmenin akdinden sonra kiracı herhangi bir nedenle araç kullanma yetkisini kaybederse (ehliyete el konulması durumunda) aracın konumunu atarak vale görevlimize teslim etmesi gerekir.<br>
+        d) Araçla alkollü veya uyuşturucu etkisinde kaza yapmanız durumunda araç masrafı ve aracın minimum 120.000 TL pert (değer kaybı) bedeli sizlere aittir.<br>
+        e) Kiracı ve kira sözleşmesinde ek sürücü olarak belirlenenlerin haricindeki şahısların aracı kullanması neticesinde meydana gelen hasar ve/veya kazalarda: Aracın çalınması veya zarar görmesi durumunda kasko ve sigorta firmaları araç masraflarını öder. Kazalarda yaralanmalı veya ölümlü durumlarda kasko ve sigorta firmaları sizlere ödeme yapmakla yükümlüdür.</p>
+
+        <p><strong>4-)</strong> Kiracının kiralanan araç ile karıştığı herhangi bir kazada; kiracı alkol, uyuşturucu etkisinde olay yerini terk etmesi durumunda, doğrudan ve dolaylı zararlar kiracıdan talep edilecektir.</p>
+
+        <p><strong>NOT:</strong> Görüşmelerimiz kayıt altına alınmaktadır. Sözleşmenin WhatsApp üzerinden atılması gereklidir. Sözleşme muhasebe departmanımız tarafından atılacaktır.<br>
+        <strong>ŞARTLAR UYGUN OLDUĞU TAKDİRDE, WHATSAPP ÜZERİNDEN “OKUDUM, KABUL EDİYORUM” YAZMANIZ GEREKLİDİR.</strong></p>
+
+        <div class="fields">
+          <div class="field">
+            <label>Ad Soyad</label>
+            <input id="fullname" type="text" placeholder="Ad Soyad">
+          </div>
+          <div class="field">
+            <label>Tarih</label>
+            <input id="date" type="date">
+          </div>
+        </div>
+
+        <div class="signature-block">
+          <div class="sig-label">İmza (Aşağıya fare veya dokunmatik ile çiziniz)</div>
+          <canvas id="sigCanvas" class="sig-canvas"></canvas>
+          <div class="sig-actions no-export">
+            <button id="clearBtn" type="button">İmzayı Temizle</button>
+            <button id="cancelBtn" class="secondary no-export" type="button">İptal</button>
+          </div>
+        </div>
+
+        <div class="footer-line">Bu belge taraflar arasında yapılmış resmi bir sözleşmedir.</div>
+      </div>
+
+      <div class="buttons no-export">
+        <button id="downloadBtn">PDF Olarak İndir</button>
+        <button id="previewBtn">PDF Önizleme</button>
+      </div>
+
     </div>
-
-    <section class="mb-6">
-      <h3 class="font-semibold text-gray-700 mb-2">Hizmetlerimiz</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="p-4 bg-gray-50 rounded">Araç Kiralama - Günlük / Haftalık / Aylık</div>
-        <div class="p-4 bg-gray-50 rounded">Kasko & Sigorta</div>
-        <div class="p-4 bg-gray-50 rounded">Yol Yardım & Araç Değişim</div>
-        <div class="p-4 bg-gray-50 rounded">Vale & Teslim Alma</div>
-      </div>
-    </section>
-
-    <section class="mb-6">
-      <h3 class="font-semibold text-gray-700 mb-2">Kiralama Sözleşmesi Maddeler</h3>
-      <div class="contract p-4 bg-gray-50 rounded">
-1-) Araçlarda HGS olup (Hızlı Geçiş Sistemi), kiracı kira dönüşü geçiş yaptığı bedel online olarak kontrol edilip araç teslim ettiğinde anlık provizyon ücretinden düşülecektir.
-
-2-) Kiralanan aracın her ne şekilde ve şartta olursa olsun kiraya verilmesi, bedelsiz de olsa üçüncü şahıslara kullandırılması yasak olup, aracın:
-a) Ek sürücü olarak belirtilmeyen sürücü tarafından aracın kullanılması.
-b) Herhangi bir vasıtayı çekmek veya itmek.
-c) Gelir karşılığı yolcu veya mal taşımasında.
-d) Türkiye Cumhuriyeti sınırları dışında kullanılmasında.
-
-3-) Aracın sürücüsü alkol, uyuşturucu, uyku hapları etkisinde olmadığı sürece, aracın zarar görmesi durumunda hasar sorumluluğunu itiraz etmeksizin karşılamayı firmamız olarak kabul ediyoruz.
-a) Poliçe ödemeleri sizin hesaplarınızda kalacaktır. Kasko ve sigorta poliçesi 50.000 TL’dir. 15 dakika sonrasında ödemelerinizi kullanabilirsiniz. İşlemler 15 dakikalık bir süredir.
-b) Kaza anında alkol, uyuşturucu veya uyku geciktirici ilaçlar etkisi altındaysanız; yasal hız sınırlarının aşıldığı durumlarda ve aracın zarar görmesi durumunda masraflar kiracıya aittir.
-c) Sözleşmenin akdinden sonra kiracı herhangi bir nedenle araç kullanma yetkisini kaybederse (ehliyete el konulması durumunda) aracın konumunu atarak vale görevlimize teslim etmesi gerekir.
-d) Araçla alkollü veya uyuşturucu etkisinde kaza yapmanız durumunda araç masrafı ve aracın minimum 120.000 TL pert (değer kaybı) bedeli sizlere aittir.
-e) Kiracı ve kira sözleşmesinde ek sürücü olarak belirlenenlerin haricindeki şahısların aracı kullanması neticesinde meydana gelen hasar ve/veya kazalarda: Aracın çalınması veya zarar görmesi durumunda kasko ve sigorta firmaları araç masraflarını öder. Kazalarda yaralanmalı veya ölümlü durumlarda kasko ve sigorta firmaları sizlere ödeme yapmakla yükümlüdür.
-
-4-) Kiracının kiralanan araç ile karıştığı herhangi bir kazada; kiracı alkol, uyuşturucu etkisinde olay yerini terk etmesi durumunda, doğrudan ve dolaylı zararlar kiracıdan talep edilecektir.
-
-NOT: Görüşmelerimiz kayıt altına alınmaktadır. Sözleşmenin WhatsApp üzerinden atılması gereklidir. Sözleşme muhasebe departmanımız tarafından atılacaktır.
-ŞARTLAR UYGUN OLDUĞU TAKDİRDE, WHATSAPP ÜZERİNDEN “OKUDUM, KABUL EDİYORUM” YAZMANIZ GEREKLİDİR.
-      </div>
-    </section>
-
-    <section class="mb-4">
-      <label class="block mb-2 font-medium">Ad Soyad</label>
-      <input id="fullName" class="w-full p-2 border rounded" placeholder="Adınızı ve soyadınızı giriniz">
-
-      <label class="block mt-4 mb-2 font-medium">İmzanız</label>
-      <canvas id="signaturePad"></canvas>
-      <div class="mt-2 flex gap-2">
-        <button class="small-btn" id="clearBtn">İmzayı Temizle</button>
-        <button class="btn" id="saveBtn">Onayla ve PDF İndir</button>
-      </div>
-    </section>
   </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-const canvas = document.getElementById('signaturePad');
-const ctx = canvas.getContext('2d');
+  <!-- Kütüphaneler -->
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-function resizeCanvas(){
-  const ratio = Math.max(window.devicePixelRatio || 1, 1);
-  const width = canvas.clientWidth;
-  canvas.width = width * ratio;
-  canvas.height = 220 * ratio;
-  ctx.setTransform(1,0,0,1,0,0);
-  ctx.scale(ratio, ratio);
-  ctx.lineWidth = 2;
-  ctx.lineCap = 'round';
-  ctx.strokeStyle = '#000';
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+  <script>
+    // Signature Pad setup
+    const canvas = document.getElementById('sigCanvas');
+    const signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgba(0,0,0,0)' });
 
-let drawing = false, lastX=0, lastY=0;
-function getPos(e){
-  if(e.touches && e.touches.length)
-    return {x:e.touches[0].clientX - canvas.getBoundingClientRect().left, y:e.touches[0].clientY - canvas.getBoundingClientRect().top};
-  return {x:e.clientX - canvas.getBoundingClientRect().left, y:e.clientY - canvas.getBoundingClientRect().top};
-}
-canvas.addEventListener('mousedown',e=>{drawing=true;const p=getPos(e);lastX=p.x;lastY=p.y;});
-canvas.addEventListener('mousemove',e=>{if(!drawing)return;const p=getPos(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;});
-window.addEventListener('mouseup',()=>drawing=false);
-canvas.addEventListener('touchstart',e=>{e.preventDefault();drawing=true;const p=getPos(e);lastX=p.x;lastY=p.y;},{passive:false});
-canvas.addEventListener('touchmove',e=>{e.preventDefault();if(!drawing)return;const p=getPos(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;},{passive:false});
-canvas.addEventListener('touchend',()=>drawing=false);
+    function resizeSigCanvas(){
+      const ratio = Math.max(window.devicePixelRatio || 1, 1);
+      const w = canvas.offsetWidth;
+      canvas.width = Math.floor(w * ratio);
+      canvas.height = Math.floor(120 * ratio);
+      const ctx = canvas.getContext('2d');
+      ctx.scale(ratio, ratio);
+      signaturePad.clear();
+    }
+    window.addEventListener('resize', resizeSigCanvas);
+    resizeSigCanvas();
 
-document.getElementById('clearBtn').addEventListener('click',()=>{ctx.clearRect(0,0,canvas.width,canvas.height);resizeCanvas();});
+    document.getElementById('clearBtn').addEventListener('click', ()=> signaturePad.clear());
+    document.getElementById('cancelBtn').addEventListener('click', ()=>{
+      signaturePad.clear(); document.getElementById('fullname').value=''; document.getElementById('date').value='';
+    });
 
-document.getElementById('saveBtn').addEventListener('click',async()=>{
-  const name = document.getElementById('fullName').value || 'Isimsiz';
-  const modal = document.getElementById('modalRoot');
-  const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF('p', 'pt', 'a4');
-  await pdf.html(modal, {
-    callback: function (pdf) {
-      pdf.save(`Avis_Sozlesme_${name.replace(/\s+/g,'_')}.pdf`);
-    },
-    margin: [20, 20, 20, 20],
-    autoPaging: 'text',
-    html2canvas: { scale: 1.2, useCORS: true }
-  });
-});
-</script>
+    // Helper — clone document and remove elements with .no-export before rendering to canvas
+    async function renderCleanToCanvas(){
+      const root = document.getElementById('document-root');
+      const clone = root.cloneNode(true);
+      // remove UI elements not for export
+      clone.querySelectorAll('.no-export').forEach(n=>n.remove());
+      // if watermark is present it's fine
+      // append clone to body hidden
+      clone.style.position='fixed'; clone.style.left='50%'; clone.style.top='50%'; clone.style.transform='translate(-50%,-50%)';
+      clone.style.boxShadow='none'; clone.style.background='#fff'; clone.style.zIndex=9999;
+      document.body.appendChild(clone);
+      // ensure any inputs in clone show user values
+      const fullname = document.getElementById('fullname').value;
+      const date = document.getElementById('date').value;
+      const cloneFull = clone.querySelector('#fullname'); if(cloneFull) cloneFull.replaceWith(createTextNode(fullname || '-'));
+      const cloneDate = clone.querySelector('#date'); if(cloneDate) cloneDate.replaceWith(createTextNode(date || '-'));
+
+      // remove interactive canvas inside clone (we'll add small signature ourselves)
+      const cloneCanvas = clone.querySelector('#sigCanvas'); if(cloneCanvas) cloneCanvas.remove();
+
+      // render
+      const canvasRendered = await html2canvas(clone, { scale: 2, useCORS: true, backgroundColor: '#ffffff' });
+      document.body.removeChild(clone);
+      return { canvas: canvasRendered, width: clone.offsetWidth };
+    }
+
+    function createTextNode(text){ const div = document.createElement('div'); div.textContent = text || '-'; div.style.fontSize='13px'; div.style.padding='6px 0'; return div; }
+
+    async function generatePdf(openPreview = false){
+      if(!document.getElementById('fullname').value){ if(!confirm('Ad Soyad boş. Yine de devam etmek istiyor musunuz?')) return; }
+
+      const sigEmpty = signaturePad.isEmpty();
+      const sigData = sigEmpty ? null : signaturePad.toDataURL('image/png');
+
+      const rendered = await renderCleanToCanvas();
+      const canvasRendered = rendered.canvas;
+      const imgData = canvasRendered.toDataURL('image/png');
+
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p','pt','a4');
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+
+      // fit the rendered image into PDF page with small margins
+      const margin = 40; // pts
+      const availableW = pageWidth - margin*2;
+      const imgW = availableW;
+      const imgH = (canvasRendered.height * imgW) / canvasRendered.width;
+      pdf.addImage(imgData,'PNG',margin,margin,imgW,imgH);
+
+      // add name & small signature near bottom (after the rendered content)
+      const name = document.getElementById('fullname').value || '-';
+      const yForName = margin + imgH + 20;
+      pdf.setFontSize(12);
+      pdf.text(`Ad Soyad: ${name}`, margin, yForName);
+      pdf.text(`Tarih: ${document.getElementById('date').value || '-'}`, margin + 300, yForName);
+
+      if(sigData){
+        // draw small signature to the right of the name
+        const sigW = 120; const sigH = 50;
+        pdf.addImage(sigData,'PNG', margin + 100, yForName - 18, sigW, sigH);
+      }
+
+      if(openPreview){ window.open(pdf.output('bloburl'), '_blank'); }
+      else { pdf.save(`Kiralama_Sozlesme_${name.replace(/\s+/g,'_') || 'Isimsiz'}.pdf`); }
+    }
+
+    document.getElementById('downloadBtn').addEventListener('click', ()=> generatePdf(false));
+    document.getElementById('previewBtn').addEventListener('click', ()=> generatePdf(true));
+  </script>
 </body>
 </html>
