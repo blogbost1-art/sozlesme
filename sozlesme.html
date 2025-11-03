@@ -8,14 +8,15 @@
 <style>
   body { font-family: Inter, system-ui, -apple-system, Arial; background:#f8fafc; }
   .modal { max-width:900px; margin:20px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
-  #signaturePad { width:100%; height:220px; touch-action: none; background:white; border:1px solid #e5e7eb; border-radius:6px; }
+  #signaturePad { width:100%; height:220px; touch-action:none; background:white; border:1px solid #e5e7eb; border-radius:6px; }
   .btn { background:#b91c1c; color:white; padding:10px 14px; border-radius:6px; font-weight:700; border:none; cursor:pointer; }
   .small-btn { background:#e5e7eb; color:#111827; padding:8px 10px; border-radius:6px; border:none; cursor:pointer; }
   .contract { white-space:pre-wrap; font-size:14px; color:#111827; line-height:1.5; }
+  @media print {.btn,.small-btn{display:none!important;}}
 </style>
 </head>
 <body>
-  <div class="modal">
+  <div class="modal" id="modalRoot">
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center gap-3">
         <img src="avis.jpg" alt="Avis" style="height:48px;">
@@ -70,116 +71,55 @@ NOT: Görüşmelerimiz kayıt altına alınmaktadır. Sözleşmenin WhatsApp üz
         <button class="btn" id="saveBtn">Onayla ve PDF İndir</button>
       </div>
     </section>
-
   </div>
 
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-(function(){
-  const canvas = document.getElementById('signaturePad');
-  const ctx = canvas.getContext('2d');
-  function resizeCanvas() {
-    const ratio = Math.max(window.devicePixelRatio || 1, 1);
-    const width = canvas.clientWidth || canvas.offsetWidth;
-    canvas.width = width * ratio;
-    canvas.height = 220 * ratio;
-    canvas.style.height = '220px';
-    ctx.scale(ratio, ratio);
-    ctx.lineWidth = 2;
-    ctx.lineCap = 'round';
-    ctx.strokeStyle = '#000';
-  }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+const canvas = document.getElementById('signaturePad');
+const ctx = canvas.getContext('2d');
 
-  let drawing = false, lastX = 0, lastY = 0;
-  function getPos(e){return e.touches?{x:e.touches[0].clientX-canvas.getBoundingClientRect().left,y:e.touches[0].clientY-canvas.getBoundingClientRect().top}:{x:e.clientX-canvas.getBoundingClientRect().left,y:e.clientY-canvas.getBoundingClientRect().top};}
-  function start(e){e.preventDefault();drawing=true;const p=getPos(e);lastX=p.x;lastY=p.y;}
-  function move(e){if(!drawing)return;e.preventDefault();const p=getPos(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;}
-  function end(){drawing=false;ctx.beginPath();}
-  canvas.addEventListener('mousedown',start);canvas.addEventListener('mousemove',move);window.addEventListener('mouseup',end);
-  canvas.addEventListener('touchstart',start,{passive:false});canvas.addEventListener('touchmove',move,{passive:false});canvas.addEventListener('touchend',end);
+function resizeCanvas(){
+  const ratio = Math.max(window.devicePixelRatio || 1, 1);
+  const width = canvas.clientWidth;
+  canvas.width = width * ratio;
+  canvas.height = 220 * ratio;
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.scale(ratio, ratio);
+  ctx.lineWidth = 2;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = '#000';
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-  document.getElementById('clearBtn').addEventListener('click',()=>{ctx.clearRect(0,0,canvas.width,canvas.height);resizeCanvas();});
+let drawing = false, lastX=0, lastY=0;
+function getPos(e){
+  if(e.touches && e.touches.length)
+    return {x:e.touches[0].clientX - canvas.getBoundingClientRect().left, y:e.touches[0].clientY - canvas.getBoundingClientRect().top};
+  return {x:e.clientX - canvas.getBoundingClientRect().left, y:e.clientY - canvas.getBoundingClientRect().top};
+}
+canvas.addEventListener('mousedown',e=>{drawing=true;const p=getPos(e);lastX=p.x;lastY=p.y;});
+canvas.addEventListener('mousemove',e=>{if(!drawing)return;const p=getPos(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;});
+window.addEventListener('mouseup',()=>drawing=false);
+canvas.addEventListener('touchstart',e=>{e.preventDefault();drawing=true;const p=getPos(e);lastX=p.x;lastY=p.y;},{passive:false});
+canvas.addEventListener('touchmove',e=>{e.preventDefault();if(!drawing)return;const p=getPos(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;},{passive:false});
+canvas.addEventListener('touchend',()=>drawing=false);
 
-  document.getElementById('saveBtn').addEventListener('click',async()=>{
-    const name=document.getElementById('fullName').value||'İsimsiz';
-    const modal=document.querySelector('.modal');
-    const clearBtn=document.getElementById('clearBtn');
-    const saveBtn=document.getElementById('saveBtn');
-    clearBtn.style.display='none';
-    saveBtn.style.display='none';
+document.getElementById('clearBtn').addEventListener('click',()=>{ctx.clearRect(0,0,canvas.width,canvas.height);resizeCanvas();});
 
-    try{
-      const canvasImg=await html2canvas(modal,{scale:2,backgroundColor:'#fff',useCORS:true});
-      const imgData=canvasImg.toDataURL('image/png',1.0);
-      const {jsPDF}=window.jspdf;
-      const pdf=new jsPDF('p','pt','a4');
-      const pageWidth=pdf.internal.pageSize.getWidth();
-      const pageHeight=pdf.internal.pageSize.getHeight();
-      const imgHeight=(canvasImg.height*pageWidth)/canvasImg.width;
-      let position=0;
-      let heightLeft=imgHeight;
-
-      // Çok sayfalı PDF desteği
-      pdf.addImage(imgData,'PNG',0,position,pageWidth,imgHeight);
-      heightLeft -= pageHeight;
-      while(heightLeft>0){
-        position -= pageHeight;
-        pdf.addPage();
-        pdf.addImage(imgData,'PNG',0,position,pageWidth,imgHeight);
-        heightLeft -= pageHeight;
-      }
-
-      pdf.save(`Avis_Sozlesme_${name.replace(/\s+/g,'_')}.pdf`);
-    }catch(err){console.error(err);}finally{
-      clearBtn.style.display='';
-      saveBtn.style.display='';
-    }
-  });
-})();
-</script>
-<script>
-document.getElementById('saveBtn').addEventListener('click', async () => {
+document.getElementById('saveBtn').addEventListener('click',async()=>{
   const name = document.getElementById('fullName').value || 'Isimsiz';
-  const modal = document.getElementById('modalRoot') || document.querySelector('.modal');
-  const clearBtn = document.getElementById('clearBtn');
-  const saveBtn = document.getElementById('saveBtn');
-  clearBtn.style.display = 'none';
-  saveBtn.style.display = 'none';
-  try {
-    const { jsPDF } = window.jspdf;
-    const canvasImg = await html2canvas(modal, {
-      scale: 2,
-      backgroundColor: '#fff',
-      useCORS: true,
-      allowTaint: true,
-      scrollY: -window.scrollY
-    });
-    const imgData = canvasImg.toDataURL('image/png', 1.0);
-    const pdf = new jsPDF('p', 'pt', 'a4');
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const pageHeight = pdf.internal.pageSize.getHeight();
-    const imgHeight = (canvasImg.height * pageWidth) / canvasImg.width;
-    let heightLeft = imgHeight;
-    let position = 0;
-    pdf.addImage(imgData, 'PNG', 0, position, pageWidth, imgHeight);
-    heightLeft -= pageHeight;
-    while (heightLeft > 0) {
-      position -= pageHeight;
-      pdf.addPage();
-      pdf.addImage(imgData, 'PNG', 0, position, pageWidth, imgHeight);
-      heightLeft -= pageHeight;
-    }
-    pdf.save(`Avis_Sozlesme_${name.replace(/\s+/g, '_')}.pdf`);
-  } catch (err) {
-    console.error(err);
-    alert('PDF oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.');
-  } finally {
-    clearBtn.style.display = '';
-    saveBtn.style.display = '';
-  }
+  const modal = document.getElementById('modalRoot');
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF('p', 'pt', 'a4');
+  await pdf.html(modal, {
+    callback: function (pdf) {
+      pdf.save(`Avis_Sozlesme_${name.replace(/\s+/g,'_')}.pdf`);
+    },
+    margin: [20, 20, 20, 20],
+    autoPaging: 'text',
+    html2canvas: { scale: 1.2, useCORS: true }
+  });
 });
 </script>
 </body>
